@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e3e3e3; /* Колір фону сторінки */
+    background-image: url("{{ url_for('static', filename='background.jpg') }}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333; /* Колір тексту */
+}
+
+
+h1 {
+    color: #FF5733;
+    font-size: 36px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+th {
+    background-color: #FFD700;
+    color: #333; 
+    padding: 10px; 
+}
+
+
+tbody tr {
+    background-color: #F5F5F5;
+}
+
+
+td {
+    padding: 8px;
+}
+
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: underline;
+}
