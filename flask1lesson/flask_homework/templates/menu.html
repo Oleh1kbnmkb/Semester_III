@@ -4,24 +4,11 @@
     <meta charset="UTF-8">
     <title>Oderman - Меню</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
 
-        table, th, td {
-            border: 1px solid black;
-        }
 
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-    </style>
 </head>
 <body>
-    <h1>Меню</h1>
+<h1>{{title1}}</h1>
     <table>
         <thead>
             <tr>
@@ -32,69 +19,18 @@
             </tr>
         </thead>
         <tbody>
+            {% for food in foods %}
             <tr>
-                <td>1</td>
-                <td>Маргарита</td>
-                <td>Томатний соус, моцарела, базилік</td>
-                <td>10.99</td>
+                <td>{{food.number}}</td>
+                <td>{{ food.name }}</td>
+                <td>{{ food.description }}</td>
+                <td>{{ food.price }}</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Пепероні</td>
-                <td>Томатний соус, пепероні, моцарела</td>
-                <td>12.99</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Гавайська</td>
-                <td>Томатний соус, шинка, ананаси, моцарела</td>
-                <td>11.99</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>BBQ Цезар</td>
-                <td>BBQ соус, куряче філе, салат, моцарела</td>
-                <td>13.99</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Мексиканська</td>
-                <td>Томатний соус, ковбаски, паперчі, моцарела</td>
-                <td>14.99</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Вегетаріанська</td>
-                <td>Томатний соус, броколі, гриби, моцарела</td>
-                <td>11.99</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Фреш салямі</td>
-                <td>Томатний соус, салямі, моцарела</td>
-                <td>12.99</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Піца з морепродуктами</td>
-                <td>Томатний соус, морські гребінці, креветки, моцарела</td>
-                <td>15.99</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>Чотири сири</td>
-                <td>Томатний соус, моцарела, дор-блю, пармезан, фета</td>
-                <td>12.99</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>Піца "Одерман"</td>
-                <td>Томатний соус, пепероні, гриби, моцарела, оливки, салат, помідори</td>
-                <td>14.99</td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
     <br>
     <a href="/">Повернутися на головну сторінку</a>
+
 </body>
 </html>

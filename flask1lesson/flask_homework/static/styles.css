@@ -2,12 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e3e3e3; /* Колір фону сторінки */
+    background-color: #e3e3e3;
     background-image: url("{{ url_for('static', filename='background.jpg') }}");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    color: #333; /* Колір тексту */
+    color: #333;
 }
 
 
@@ -50,3 +50,18 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+
+table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }

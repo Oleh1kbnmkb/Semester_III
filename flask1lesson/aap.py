@@ -43,21 +43,21 @@ def login():
 
 
 
-# def this_is_never_execute():
-#     pass
+def this_is_never_execute():
+    pass
 
-# @app.route("/aborted-page/")
-# def aborted_page():
-#     abort(401)
-#     this_is_never_execute()
+@app.route("/aborted-page/")
+def aborted_page():
+    abort(401)
+    this_is_never_execute()
 
-# @app.errorhandler(404)
-# def page_not_found(error):
-#     return "такої сторінки немає", 404
+@app.errorhandler(404)
+def page_not_found(error):
+    return "такої сторінки немає", 404
 
-# @app.errorhandler(401)
-# def page_not_found(error):
-#     return "ДОСТУП ЗАБОРОНЕНО", 401
+@app.errorhandler(401)
+def page_not_found(error):
+     return "ДОСТУП ЗАБОРОНЕНО",
 
 
 
