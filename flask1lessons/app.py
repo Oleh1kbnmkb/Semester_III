@@ -3,7 +3,7 @@ import random as r
 
 app = Flask(__name__)
 
-user_name = "Oleh"
+user_name = "Kostya"
 
 @app.route("/")
 def hello_world():
