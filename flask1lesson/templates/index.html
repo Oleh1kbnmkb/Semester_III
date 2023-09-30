@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask project 1</title>
+    <link rel="stylesheet" href="/static/main.css">
+  <script>
+    alert("Page has been load")
+  </script>
+</head>
+<body>
+<h1>Шевченко Андрій</h1>
+<p>Junior python developer</p>
+<h1>{{title}}</h1>
+<ul>
+    {% for work in portfolio %}
+    <li>
+        {% if work.year < 2023 %} "old" {% else %} "new" {% endif %}
+        <b>{{work.working}}: </b> {{work.year}} / {{max_score}}
+    </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

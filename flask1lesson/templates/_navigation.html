@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <nav>
-        {% for menu_items in ["base.html", "results.html"] %}
-        <a href="{{url_for(menu_item)}}"> {{ menu_item|upper }}</a>
+        {% for menu_item in ["base", "results"] %}
+        <a href="{{ url_for(menu_item) }}">{{ menu_item)) }}</a>
         {% endfor %}
     </nav>
+
 </head>
 <body>
 

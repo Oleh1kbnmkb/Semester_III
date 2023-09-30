@@ -3,18 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        {% block title %} {{title}} {% endblock title %}
+        {% block title %} {{ title }} {% endblock title %}
     </title>
 </head>
 <body>
-{% import "macros.html"
+{% import "macros.html" as macros %}
 {% block content %}
-{% include '_navigation.html' %}
-{% block content %}
-<h1>Welcome to {{title}} in Flask</h1>
+<h1>Welcome to {{title}}</h1>
+  <h1>Країни та їх національний спадок</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Країна</th>
+                <th>Національний спадок</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Україна</td>
+                <td>Козацька традиція, борщ, вишиванки</td>
+            </tr>
+            <tr>
+                <td>Сполучені Штати Америки</td>
+                <td>Фрідом, Гімн "Зірка-полум'я", гамбургери</td>
+            </tr>
+            <tr>
+                <td>Італія</td>
+                <td>Піца, оперний спадок, Ренесансне мистецтво</td>
+            </tr>
+
+        </tbody>
 {% endblock content %}
-<footer>
-    {{ macros.light_or_dark_mode("body") }}
-</footer>
+
+        <footer>
+            {{ macros.light_or_dark_mode("body") }}
+        </footer>
 </body>
 </html>

@@ -1,8 +1,9 @@
-from flask import Flask, url_for, request, send_file, abort
+from flask import Flask, url_for, request, send_file, redirect, abort
 import random as r
 
-
 app = Flask(__name__)
+
+user_name = "Oleh"
 
 @app.route("/")
 def hello_world():
@@ -15,10 +16,10 @@ def hello_world2():
     list = ["Сьогодні у вас гарний день", "Вас чекають неприємності", "Вас чекає гарна звістка"]
     return r.choice(list)
 
+
 @app.route("/login/")
 def send_login():
-  return send_file("C:/Python_1y_15_22/flask1lesson/tamplates/login.html")
-
+    return send_file("templates/login.html")
 
 @app.route("/login/", methods = ["POST", "GET"])
 def login():
@@ -29,17 +30,17 @@ def login():
         user = request.args.get("nane")
         return "Request method GET - user name = %s" %user
 
-# @app.route("/url_for_test/")
-# def url_for_test():
-#     return url_for("hello")
+@app.route("/url_for_test/")
+def url_for_test():
+    return url_for("hello")
 
-# @app.route('/redirect-to-login-page')
-# def redirected():
-#     if user_name == "Admin":
-#         abort(401)
-#         return redirect(url_for('admin'))
-#     else:
-#         return redirect(url_for('login'))
+@app.route('/redirect-to-login-page')
+def redirected():
+    if user_name == "Admin":
+        abort(401)
+        return redirect(url_for('admin'))
+    else:
+        return redirect(url_for('login'))
 
 
 
@@ -57,7 +58,7 @@ def page_not_found(error):
 
 @app.errorhandler(401)
 def page_not_found(error):
-     return "ДОСТУП ЗАБОРОНЕНО",
+    return "ДОСТУП ЗАБОРОНЕНО", 401
 
 
 
@@ -67,3 +68,5 @@ with app.test_request_context():
     print(url_for("hello_world2"))
     print(url_for("redirected"))
 app.run(host="0.0.0.0", port=8080, debug=True)
+
+
