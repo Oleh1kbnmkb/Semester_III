@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for food in foods %}
+            {% for food in foods|sort(attribute="price") %}
             <tr>
                 <td>{{food.number}}</td>
                 <td>{{ food.name }}</td>

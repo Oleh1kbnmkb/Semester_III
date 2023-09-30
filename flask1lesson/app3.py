@@ -22,7 +22,7 @@ def hello_world2():
     return render_template("base.html", title="All work fine")
 
 @app.route("/index/")
-def hello_world():
+def index():
     return render_template("base.html", title="All work fine")
 
 @app.route("/results/")
