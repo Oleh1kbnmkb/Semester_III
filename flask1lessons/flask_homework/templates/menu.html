@@ -13,18 +13,20 @@
     <thead>
     <tr>
 
+        <th>№</th>
         <th>Назва піци</th>
         <th>Опис інгредієнтів</th>
         <th>Ціна піци</th>
     </tr>
     </thead>
     <tbody>
-    {% for item in menu %}
+    {% for participant in data %}
     <tr>
 
-        <td>{{ item[0] }}</td>
-        <td>{{ item[1] }}</td>
-        <td>{{ item[2] }}</td>
+        <td>{{ participant[0] }}</td>
+        <td>{{ participant[1] }}</td>
+        <td>{{ participant[2] }}</td>
+        <td>{{ participant[3] }}</td>
     </tr>
     {% endfor %}
     </tbody>

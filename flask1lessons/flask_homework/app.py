@@ -16,16 +16,16 @@ def index():
 def menu():
     connection = sqlite3.connect('menu.db')
     cursor = connection.cursor()
-    cursor.execute("SELECT name, description, price FROM menu")
+    cursor.execute("SELECT * FROM menu")
     menu_data = cursor.fetchall()
     connection.close()
 
-    return render_template('menu.html', title1="Меню", menu=menu_data)
+    return render_template('menu.html', title1="Меню", data=menu_data)
 
 
 
-@app.route("/add_pizza/")
-def add_foods():
+@app.route("/add_pizza/", methods=["GET", "POST"])
+def add_pizza():
     if request.method == "POST":
         name = request.form['name']
         description = request.form['description']
@@ -33,20 +33,16 @@ def add_foods():
 
         with sqlite3.connect("menu.db") as pizza:
             cursor = pizza.cursor()
-            cursor.execute("INSERT INTO PARTICIPANTS\
-                           (name, description, price) VALUES (?, ?, ?)"), (name, description, price)
+            cursor.execute("INSERT INTO menu\
+                           (name, description, price) VALUES (?, ?, ?)", (name, description, price))
             pizza.commit()
-    return render_template('add_pizza.html')
+            return render_template('index.html')
+    else:
+        return render_template('join.html')
 
 
-@app.route("/participants")
-def participants():
-    connect = sqlite3.connect ('menu.db')
-    cursor = connect.cursor()
-    cursor.execute("SELECT * FROM PARTICIPANTS")
-    data = cursor.fetchall()
-    return render_template ("menu.html", data=data)
+
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
