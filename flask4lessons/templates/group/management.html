@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group management</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block main %}
+
+{% if iterable %}
+    <table>
+        {% for item in iterable %}
+        <tr>
+            <td>
+                 <a href="{{ url_for('group_get', id=item.id)}}">{{item}}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+        <h1> Відстуні елементи </h1>
+{% endif %}
+<form action="{{ url_for('group_management') }}" method="post">
+
+    <p>
+        <label for="name">Name</label>
+        <input name="name" type="text">
+    </p>
+    <p>
+        <button type="submit">ADD</button>
+    </p>
+</form>
+{% endblock main %}
+</body>
+</html>
