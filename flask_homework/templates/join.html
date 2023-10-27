@@ -3,8 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Oderman - Меню</title>
+    <style>
+        body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.menu a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.menu a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+    </style>
 </head>
 <body>
+
+<div class="menu">
+  <a class="active" href="/">Головна</a>
+  <a href="/menu">Меню</a>
+  <a href="/add_pizza">Додати страву</a>
+</div>
+
+<br>
+<br>
+
+
 <form method ="POST">
     <label>Введи назву:</label>
     <input type="name" name = "name" placeholder="Введи назву піци" required><br>

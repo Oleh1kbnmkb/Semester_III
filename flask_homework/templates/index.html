@@ -8,11 +8,21 @@
 
 </head>
 <body>
+
+<div class="menu">
+  <a class="active" href="/">Головна</a>
+  <a href="/menu">Меню</a>
+  <a href="/add_pizza">Додати страву</a>
+</div>
+
+
+
 <h1>{{title2}}</h1>
 <img height="370px" src="https://technofood.com.ua/uploads/images/Main_pecture1.jpg">
-<h2>{{title3}}</h2>
-<br>
-<button class="btn" type="button" onclick="window.location.href='{{ url_for('add_pizza') }}';">Додати нову піцу</button><br>
-<button class="btn" type="button" onclick="window.location.href='{{ url_for('menu') }}';">Перейти до меню</button>
+
+
+
+
+
 </body>
 </html>

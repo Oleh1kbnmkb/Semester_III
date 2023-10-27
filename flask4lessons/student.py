@@ -14,3 +14,6 @@ class Student(Base):
     age: Mapped[int] = mapped_column(String(250))
 
     groups: Mapped[List[Group]] = relationship(secondary=student_group_assoc_table)
+
+    def __repr__(self):
+        return f"<Student:{self.surname} {self.name} - {self.age}>"
