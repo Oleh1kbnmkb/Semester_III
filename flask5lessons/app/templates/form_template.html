@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% form '__helpers.html' import form_generator %}
+
+{% block main %}
+    {{ form_generator(form) }}
+{% endblock main %}
+</body>
+</html>
