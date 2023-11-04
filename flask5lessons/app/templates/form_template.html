@@ -5,11 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-{% extends 'base.html' %}
-{% form '__helpers.html' import form_generator %}
+{% from '__helpers.html' import form_generate %}
 
-{% block main %}
-    {{ form_generator(form) }}
+{%block main %}
+ {{ form_generate(form) }}
 {% endblock main %}
 </body>
 </html>
