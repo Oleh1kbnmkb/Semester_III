@@ -14,7 +14,7 @@ class Event(Base):
     time = Column("time", Time, nullable=True,)
     header: Mapped[str] = mapped_column(String(80))
     describe: Mapped[str] = mapped_column(String(240), nullable=True,)
-    user: Mapped[User] = relationship(back_populates="events")
+    #user: Mapped[User] = relationship(back_populates="events")
 
 
     def __str__(self) -> str:
