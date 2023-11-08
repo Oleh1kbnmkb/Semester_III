@@ -95,3 +95,23 @@ body {
   background-color: #4CAF50;
   color: white;
 }
+
+
+body {
+    color: #000080; /* Білий текст */
+    font-family: Arial, sans-serif; /* Шрифт */
+}
+
+.container {
+    display: flex;
+    justify-content: flex-end; /* Вирівнюємо контент справа */
+    align-items: center; /* Вирівнюємо по центру */
+    height: 100vh; /* Висота контейнера на весь екран */
+    padding: 20px;
+}
+
+
+
+h2 {
+    font-size: 18px; /* Розмір шрифту для тексту */
+    color: rgb(16, 121, 212);

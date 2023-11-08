@@ -1,14 +1,26 @@
 from flask import Flask, render_template, request
 import sqlite3
+import requests
 
 app = Flask(__name__)
 
 
+API_KEY = 'bddebc304257efa7289dcdb93bebeee5'
 
-
-@app.route("/")
+def get_current_weather(city):
+    url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return data
+    else:
+        return None
+@app.route('/')
 def index():
-    return render_template('index.html', title1="Oderman - Піцерія", title2="PizzaMondo", title3="Меню")
+    city = 'Київ'
+    current_weather = get_current_weather(city)
+    return render_template('index.html', current_weather=current_weather, title1="Oderman - Піцерія", title2="PizzaMondo")
+    # return render_template('index.html', title1="Oderman - Піцерія", title2="PizzaMondo", title3="Меню")
 
 
 
