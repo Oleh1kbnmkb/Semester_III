@@ -20,7 +20,6 @@ def index():
     city = 'Київ'
     current_weather = get_current_weather(city)
     return render_template('index.html', current_weather=current_weather, title1="Oderman - Піцерія", title2="PizzaMondo")
-    # return render_template('index.html', title1="Oderman - Піцерія", title2="PizzaMondo", title3="Меню")
 
 
 
@@ -38,6 +37,7 @@ def menu():
 
 @app.route("/add_pizza/", methods=["GET", "POST"])
 def add_pizza():
+    current_weather = get_current_weather(city="Київ")
     if request.method == "POST":
         name = request.form['name']
         description = request.form['description']
@@ -48,12 +48,30 @@ def add_pizza():
             cursor.execute("INSERT INTO menu\
                            (name, description, price) VALUES (?, ?, ?)", (name, description, price))
             pizza.commit()
-            return render_template('index.html')
+            return render_template('index.html', current_weather=current_weather)
     else:
         return render_template('join.html')
 
 
 
+
+
+# @app.route("/add_pizza/", methods=["GET", "POST"])
+# def add_pizza():
+#     current_weather = get_current_weather(city="Київ")  # Отримайте погоду незалежно від методу запиту
+#
+#     if request.method == "POST":
+#         name = request.form['name']
+#         description = request.form['description']
+#         price = request.form['price']
+#
+#         with sqlite3.connect("menu.db") as pizza:
+#             cursor = pizza.cursor()
+#             cursor.execute("INSERT INTO menu\
+#                            (name, description, price) VALUES (?, ?, ?)", (name, description, price))
+#             pizza.commit()
+#
+#     return render_template('index.html', current_weather=current_weather)
 
 
 if __name__ == '__main__':

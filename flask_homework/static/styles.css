@@ -98,20 +98,20 @@ body {
 
 
 body {
-    color: #000080; /* Білий текст */
-    font-family: Arial, sans-serif; /* Шрифт */
+    color: #000080;
+    font-family: Arial, sans-serif;
 }
 
 .container {
     display: flex;
-    justify-content: flex-end; /* Вирівнюємо контент справа */
-    align-items: center; /* Вирівнюємо по центру */
-    height: 100vh; /* Висота контейнера на весь екран */
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
     padding: 20px;
 }
 
 
 
 h2 {
-    font-size: 18px; /* Розмір шрифту для тексту */
+    font-size: 18px;
     color: rgb(16, 121, 212);
