@@ -14,12 +14,15 @@
     <a class="active" href="/">Головна</a>
     <a href="/menu">Меню</a>
     <a href="/add_pizza">Додати страву</a>
-    <a class="weather-text">Погода в Україні: {{ current_weather.main.temp }}°C</a>
 </div>
 
 
-
-<h1>{{title2}}</h1>
+<div class="weather">
+    <h3 class="weather-text">Погода в Україні: {{ current_weather.main.temp }}°C</h3>
+</div>
+{% if food_recommendation %}
+    <p>Наші рекомендації: {{ food_recommendation }}</p>
+{% endif %}
 
 <img height="370px" src="https://technofood.com.ua/uploads/images/Main_pecture1.jpg">
 </body>
