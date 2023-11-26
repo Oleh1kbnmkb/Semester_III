@@ -4,3 +4,13 @@ h1 {
   text-align: center;
   padding: 10px;
 }
+
+.flashes {
+    color: red;
+    font-weight: bold;
+}
+
+.flashes2 {
+    color: red;
+    font-weight: bold;
+}
