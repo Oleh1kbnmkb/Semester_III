@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ pizza_details.name }} Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <style>
+        body {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #bd2130;
+            border-color: #bd2130;
+        }
+    </style>
+</head>
+<body>
+<h1>{{ pizza_details.name }}</h1>
+    <p>Опис: {{ pizza_details.description }}</p>
+    <p>Ціна: {{ pizza_details.price }}</p>
+
+    <a href="{{ url_for('edit', pizza_name=pizza_details.name) }}">
+        <span class="badge badge-warning">Edit</span>
+    </a>
+    <hr>
+    <form action="{{ url_for('delete', pizza_name=pizza_details.name) }}" method="POST">
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure want to delete this pizza?')">Delete Pizza</button>
+    </form>
+
+    <form action="{{ url_for('order', pizza_name=pizza_details.name) }}" method="POST">
+        <button type="submit" class="btn btn-secondary" onclick="return confirm('Do you really want to order this pizza?')">Order Pizza</button>
+    </form>
+</body>
+</html>

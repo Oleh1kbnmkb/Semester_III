@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Oderman - Меню</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
-
 </head>
 <body>
 <!--Навігаційна панель-->
@@ -16,14 +14,10 @@
 </div>
 
 
-
-
-<!--Меню-->
-<h1>{{title1}}</h1>
+<h1>{{ title1 }}</h1>
 <table>
     <thead>
     <tr>
-
         <th>№</th>
         <th>Назва піци</th>
         <th>Опис інгредієнтів</th>
@@ -33,14 +27,15 @@
     <tbody>
     {% for participant in data %}
     <tr>
-
         <td>{{ participant[0] }}</td>
-        <td>{{ participant[1] }}</td>
+        <td><a href="{{ url_for('pizza_details', pizza_name=participant[1]) }}">{{ participant[1] }}</a></td>
         <td>{{ participant[2] }}</td>
         <td>{{ participant[3] }}</td>
     </tr>
     {% endfor %}
     </tbody>
 </table>
+
+
 </body>
 </html>

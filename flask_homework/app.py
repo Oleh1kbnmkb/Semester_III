@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, abort, redirect, url_for, flash
 import sqlite3
 import requests
 import random
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = "Your secret key"
 
 
 API_KEY = 'bddebc304257efa7289dcdb93bebeee5'
@@ -55,6 +57,21 @@ def menu():
     return render_template('menu.html', title1="Меню", data=menu_data)
 
 
+@app.route('/pizza_details/<pizza_name>')
+def pizza_details(pizza_name):
+    pizza = get_name(pizza_name)
+
+    if pizza:
+        pizza_details = {
+            'name': pizza['name'],
+            'description': pizza['description'],
+            'price': pizza['price']
+        }
+        return render_template('pizza_details.html', pizza_details=pizza_details)
+    else:
+        abort(404)
+
+
 
 @app.route("/add_pizza/", methods=["GET", "POST"])
 def add_pizza():
@@ -74,6 +91,65 @@ def add_pizza():
         return render_template('join.html')
 
 
+
+
+@app.route("/<pizza_name>/delete/", methods=("GET", "POST"))
+def delete(pizza_name):
+    if request.method == "POST":
+        if pizza_name:
+            connection = get_db_connection()
+            connection.execute("DELETE FROM menu WHERE name = ?", (pizza_name,))
+            connection.commit()
+            connection.close()
+
+        return redirect(url_for("menu"))
+
+
+@app.route("/<pizza_name>/edit/", methods=("GET", "POST"))
+def edit(pizza_name):
+    connection = get_db_connection()
+    pizza_details = connection.execute("SELECT * FROM menu WHERE name = ?", (pizza_name,)).fetchone()
+    connection.close()
+
+    if request.method == "POST":
+        name = request.form['name']
+        description = request.form['description']
+        price= request.form['price']
+
+        if not name:
+            flash("Name is required")
+            return redirect(url_for("edit", pizza_name=pizza_name))
+        else:
+            connection = get_db_connection()
+            connection.execute("UPDATE menu SET name=?, description=?, price=? WHERE name=?", (name, description, price, pizza_name,))
+            connection.commit()
+            connection.close()
+
+            flash("Pizza updated successfully")
+            return redirect(url_for("index"))
+
+    return render_template("edit.html", pizza_details=pizza_details or {})
+
+
+
+@app.route("/<pizza_name>/order/", methods=("GET", "POST"))
+def order(pizza_name):
+    return render_template("order.html", pizza_name=pizza_name)
+
+def get_db_connection():
+  conn = sqlite3.connect("menu.db")
+  conn.row_factory = sqlite3.Row
+  return conn
+
+
+
+def get_name(post_name):
+  conn = get_db_connection()
+  post = conn.execute("SELECT * FROM menu WHERE NAME = ?", (post_name,)).fetchone()
+  conn.close()
+  if post is None:
+    abort(404)
+  return post
 
 
 
