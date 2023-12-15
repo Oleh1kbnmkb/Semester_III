@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+</head>
+<body>
+
+{% for element in data.values() %}
+   {{ element['distance_trillionkm']|round}}<br>
+{% endfor %}
+</body>
+</html>
