@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ice Cream</title>
+</head>
+<body>
+<h2>Form</h2>
+<form action="/ice/" method="post">
+    <p>
+        {{ form.tastes.label }}
+        {{ form.tastes }}
+    </p>
+    <p>
+        {{ form.topping.label }}
+        {{ form.topping }}
+    </p>
+    <p>
+        {{ form.cup_size.label }}
+        {{ form.cup_size }}
+<!--        {{ form.submit.label }}-->
+        {{ form.submit }}
+    </p>
+</form>
+</body>
+</html>

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
 {% extends "base.html" %}
 {% block main %}
 
@@ -20,7 +21,7 @@
         {% endfor %}
     </table>
 {% else %}
-        <h1> Відстуні елементи </h1>
+        <h1> Indented elements </h1>
 {% endif %}
 <form action="{{ url_for('group_management') }}" method="post">
 
@@ -33,5 +34,6 @@
     </p>
 </form>
 {% endblock main %}
+
 </body>
 </html>
