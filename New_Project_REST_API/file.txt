@@ -1,0 +1,23 @@
+сума двох блюд
+{
+    "nutrition_info_1": {"proteins": 18, "carbs": 3, "fats": 9},
+    "nutrition_info_2": {"proteins": 0, "carbs": 25, "fats": 0}
+}
+
+ індекс маси тіла
+{
+    "weight": 70,
+    "height": 1.75
+}
+
+норма калорій для жінки чи чоловіка
+
+{
+    "gender": "male",
+    "age": 30,
+    "height": 1.75,
+    "weight": 70,
+    "activity_level": "sedentary"
+}
+
+female
