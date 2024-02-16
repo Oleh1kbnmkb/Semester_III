@@ -7,10 +7,9 @@
 </head>
 <body>
  {% extends "base.html" %}
- {% set from=departures[departure] %}
  {% set sorted_by_price = tours.values()|sort(attribute="price") %}
- {% set sorted_by_nights = tours.values() |sort(attribute="nights") %}
- {% set from = departure[departure] %}
+ {% set sorted_by_nights = tours.values()|sort(attribute="nights") %}
+ {% set from = departures[departure] %}
  {% block main %}
 
  <main class="container mt-3">
@@ -25,8 +24,8 @@
                     <img class="card-img-top img-fluid" src={{tour.picture}} alt="placeholder" />
                 </div>
                 <div class="card-body">
-                    <h2 class="h5 card-title">{{ tour.title }}}}</h2>
-                    <p class="card-text">{{ tour.description|truncate(130) }}s</p>
+                    <h2 class="h5 card-title">{{ tour.title }}</h2>
+                    <p class="card-text">{{ tour.description|truncate(130) }}</p>
                     <a href="/tours/{{ id }}" class="btn btn-sm btn-primary">Деталі туру</a>
                 </div>
             </div>

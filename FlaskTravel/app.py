@@ -17,16 +17,16 @@ def index():
 
 
 
-@app.route("/departures/<departure>")
+@app.route("/departures/<departure>/")
 def departure(departure):
-  tours = dict(filter(lambda tour: tour[1]["departure"] == departure, data.tours.items()))
-  print(tours)
-  if tours:
+  tours2 = dict(filter(lambda tour: tour[1]["departure"] == departure, data.tours.items()))
+  print(tours2)
+  if tours2:
     return render_template("departure.html",
                            departure=departure,
                            title=data.title,
                            departures=data.departures,
-                           tours=tours)
+                           tours=tours2)
   abort(404)
 
 
