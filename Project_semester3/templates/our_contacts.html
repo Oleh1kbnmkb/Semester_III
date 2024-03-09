@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style5.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+<nav class="nav">
+    <a href="/home/" class="logo">RENTHOUSE.UA</a>
+
+
+    <ul class="nav-links">
+        <li><a href="/home/">Головна</a></li>
+        <li><a href="/tours_houses/">Тури-Житло</a></li>
+        <li><a href="/buy_houses/">Як замовити житло</a></li>
+        <li><a href="/about_us/">Про нас</a></li>
+        <li><a href="/our_contacts/">Наші контакти</a></li>
+    </ul>
+
+    <i class="uil uil-search search-icon" id="searchIcon"></i>
+    <div class="search-box">
+        <i class="uil uil-search search-icon"></i>
+        <input type="text" placeholder="Шукай тут..."/>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+
+<section class="contact">
+    <div class="container">
+        <h2>Наші Контакти</h2>
+        <div class="contact-wrapper">
+            <div class="contact-form">
+                <h3>Надіслати нам повідомлення</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Твоє ім'я">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Твоя електрона пошта">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Твоє повідомлення"></textarea>
+                    </div>
+                    <a href="javascript:alert('Ми звами звяжемося протягом 5 годин')" class="button-contex" onclick="alert('Ми звами звяжемося протягом 5 годин')">Надіслати</a>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Контактна Інформація</h3>
+                <p><i class="fas fa-phone"></i>+380 (50) 123-45-67</p>
+                <p><i class="fas fa-envelope"></i>renthouse@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i>вул. Володимирська, Львів, Україна</p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

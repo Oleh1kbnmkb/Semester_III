@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tours</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+<div class="d-grid gap-2" style="margin-top: 20px; margin-left: 20px;">
+  <a href="/tours_houses/" class="btn btn-primary" style="width: 500px; margin-bottom: 20px; text-align: left;">◀ Повернутися до турів</a>
+</div>
+<br>
+<br>
+<main class="container">
+    <section class="mt-3 pb-5">
+        <h1 class="display-3 mt-4">{{ tour.title }} {{ tour.stars|int * '★' }}</h1>
+        <p class="lead">{{ tour.country }} - заплановано {{ tour.date }} на {{ tour.nights }} днів</p>
+        <img src="{{ tour.picture }}" class="w-75" alt="{{ tour.title }}">
+        <p class="my-4 w-75">{{ tour.description }}</p>
+        <a href="javascript:alert('Мрії збуваються')" class="btn btn-primary" onclick="alert('Мрії збуваються')">Купити тур за {{ tour.price }} грн</a>
+    </section>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tours and Houses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+<div class="d-grid gap-2" style="margin-top: 20px; margin-left: 20px;">
+  <a href="/home/" class="btn btn-primary" style="width: 500px; margin-bottom: 20px; text-align: left;">◀ Повернутися на головну сторінку</a>
+</div>
+<br>
+<br>
+<div class="text-for-site">
+    <h1>Вибери житло для себе</h1>
+</div>
+<div class="card-container">
+    {% for tour_id, tour in tours.items() %}
+        <div class="card">
+            <img src="{{ tour['picture'] }}" alt="{{ tour['title'] }}">
+            <div class="card-content">
+                <h3>{{ tour['title'] }}</h3>
+                <p>{{ tour['description'] }}</p>
+                <br>
+                <a href="/house/{{ tour_id }}/" class="btn">Читати більше...</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
